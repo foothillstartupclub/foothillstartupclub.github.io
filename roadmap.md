@@ -1,8 +1,8 @@
 # Supabase migration
 
-- [ ] Inspect the current backend, data, authentication, forms, and admin access.
-- [ ] Back up all existing Lovable Cloud data before any destructive change.
-- [ ] Obtain approval and remove Lovable Cloud, then connect the existing Foothill Startup Club Supabase project `kobdcztkdldgjjqdclds`.
+- [x] Inspect the current backend, data, authentication, forms, and admin access.
+- [x] Export the six requested tables, schema, relationships, indexes, RLS policies, and functions; verify the downloadable archive.
+- [ ] Await explicit approval before removing Lovable Cloud, then connect the existing Foothill Startup Club Supabase project `kobdcztkdldgjjqdclds`.
 - [ ] Recreate missing tables, functions, grants, RLS policies, and officer access without overwriting existing Supabase data.
 - [ ] Point `src/services/clubData.ts` and authentication at external Supabase; preserve all frontend UI and behavior.
 - [ ] Remove Cloud/Bolt runtime dependencies and references that are not platform-owned.
