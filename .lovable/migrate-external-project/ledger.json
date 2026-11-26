@@ -1,0 +1,104 @@
+{
+  "source": "bolt",
+  "project": "Foothill Startup Club Website",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "bolt",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "schema",
+      "source": "bolt",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "records",
+      "source": "bolt",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Request CSV/JSON exports of existing application tables from Bolt Data / Table Editor after preview"
+    },
+    {
+      "capability": "auth_identities",
+      "source": "bolt",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Enable email auth and first-login email verification/password setup; request user export with emails and original IDs after preview"
+    },
+    {
+      "capability": "authorization",
+      "source": "bolt",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "None"
+    },
+    {
+      "capability": "uploaded_file_bytes",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "No Storage buckets detected; static logo asset copied to public/"
+    },
+    {
+      "capability": "external_providers",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "No external payment, email, AI, or analytics SDKs detected"
+    },
+    {
+      "capability": "public_endpoints",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "No custom API routes or edge functions detected"
+    },
+    {
+      "capability": "callbacks",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "No OAuth or external callbacks detected"
+    },
+    {
+      "capability": "webhooks",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "No webhooks detected"
+    },
+    {
+      "capability": "schedules",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "No scheduled jobs detected"
+    },
+    {
+      "capability": "secrets",
+      "source": "bolt",
+      "outcome": "not_applicable",
+      "status": "verified",
+      "next_action": "Old Supabase URL/anon key replaced by Lovable Cloud client; no third-party secrets required"
+    },
+    {
+      "capability": "cutover",
+      "source": "bolt",
+      "outcome": "pending",
+      "status": "pending",
+      "next_action": "Import existing records and officer accounts if present, then publish"
+    },
+    {
+      "capability": "verification",
+      "source": "bolt",
+      "outcome": "migrate",
+      "status": "in_progress",
+      "next_action": "Verify public page, email/signup writes, and officer sign-in UI; officer account auth verification remains pending until user export is imported"
+    }
+  ]
+}
