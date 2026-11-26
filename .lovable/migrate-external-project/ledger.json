@@ -1,6 +1,7 @@
 {
   "source": "bolt",
   "project": "Foothill Startup Club Website",
+  "destination": "external-supabase:kobdcztkdldgjjqdclds",
   "capabilities": [
     {
       "capability": "code",
@@ -20,22 +21,22 @@
       "capability": "records",
       "source": "bolt",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Request CSV/JSON exports of existing application tables from Bolt Data / Table Editor after preview"
+      "status": "verified",
+      "next_action": "None; all six approved CSV exports contained zero records"
     },
     {
       "capability": "auth_identities",
       "source": "bolt",
       "outcome": "migrate",
-      "status": "pending",
-      "next_action": "Enable email auth and first-login email verification/password setup; request user export with emails and original IDs after preview"
+      "status": "in_progress",
+      "next_action": "Create the first officer account using the email supplied by the user; the source and destination both had zero auth users"
     },
     {
       "capability": "authorization",
       "source": "bolt",
       "outcome": "migrate",
-      "status": "verified",
-      "next_action": "None"
+      "status": "in_progress",
+      "next_action": "Verify authorized officer writes after the first officer account is created; anonymous restrictions are verified"
     },
     {
       "capability": "uploaded_file_bytes",
@@ -82,23 +83,23 @@
     {
       "capability": "secrets",
       "source": "bolt",
-      "outcome": "not_applicable",
+      "outcome": "migrate",
       "status": "verified",
-      "next_action": "Old Supabase URL/anon key replaced by Lovable Cloud client; no third-party secrets required"
+      "next_action": "Browser uses only the publishable key; public form writes use server-side service credentials"
     },
     {
       "capability": "cutover",
       "source": "bolt",
-      "outcome": "pending",
-      "status": "pending",
-      "next_action": "Import existing records and officer accounts if present, then publish"
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Create and verify the first officer account before publishing"
     },
     {
       "capability": "verification",
       "source": "bolt",
       "outcome": "migrate",
       "status": "in_progress",
-      "next_action": "Verify public page, email/signup writes, and officer sign-in UI; officer account auth verification remains pending until user export is imported"
+      "next_action": "Public reads, both email forms, membership signup, anonymous restrictions, invalid login, tests, and production build passed; authorized officer writes remain pending"
     }
   ]
 }

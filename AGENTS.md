@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application backend
+
+- Use the connected external Supabase project for all app data and auth. Keep database operations in `src/services/clubData.ts`; public form writes must use TanStack server functions with the admin client loaded inside their handlers because browser roles cannot execute the form functions directly.
