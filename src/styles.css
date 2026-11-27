@@ -168,6 +168,7 @@
   --charcoal: #262321;
   --gold: #b89a61;
   --line: rgba(38, 35, 33, 0.18);
+  --page-max: 1400px;
 }
 
 * { box-sizing: border-box; }
@@ -179,7 +180,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #1b929b; outline-offset: 3px; }
 
 .site-shell { overflow: hidden; }
-.site-header { align-items: center; background: var(--cream); display: flex; justify-content: space-between; min-height: 106px; padding: 18px clamp(24px, 5vw, 64px); position: relative; z-index: 10; }
+.site-header { align-items: center; background: var(--cream); display: flex; justify-content: space-between; min-height: 106px; padding: 18px max(clamp(24px, 5vw, 64px), calc((100vw - var(--page-max)) / 2)); position: relative; z-index: 10; }
 .brand { align-items: center; display: flex; font-family: "Montserrat", sans-serif; font-size: 17px; font-weight: 600; line-height: 1.05; }
 .brand-crest { border-radius: 8px; display: block; height: 40px; margin-right: 10px; object-fit: contain; width: auto; }
 .brand em, h1 em, h2 em { font-family: Georgia, serif; font-weight: 400; }
@@ -215,7 +216,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .hero-crest-wrap { align-self: center; justify-self: center; max-width: clamp(280px, 34vw, 480px); padding: 8px 0; transform: translateY(calc((24px - clamp(64px, 9vw, 128px)) / 2)); width: 100%; }
 .crest-tile { background: transparent; }
 .crest-tile img { display: block; height: auto; object-fit: contain; width: 100%; }
-.section { padding: clamp(72px, 10vw, 130px) clamp(24px, 7vw, 92px); }
+.section { padding: clamp(72px, 10vw, 130px) max(clamp(24px, 7vw, 92px), calc((100vw - var(--page-max)) / 2)); }
 .section-kicker { color: var(--burgundy); }
 .section-heading { align-items: end; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding-bottom: 22px; }
 .section-heading p { font-size: 14px; margin: 0; max-width: 280px; }
