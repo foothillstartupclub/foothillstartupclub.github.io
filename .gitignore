@@ -23,6 +23,12 @@ dist-ssr
 # Supabase CLI local link state
 supabase/.temp/
 
+# Local environment files
+.env
+
+# Kilo Agent Manager worktrees
+.kilo/worktrees/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
