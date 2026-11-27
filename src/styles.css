@@ -181,6 +181,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .site-shell { overflow: hidden; }
 .site-header { align-items: center; background: var(--cream); display: flex; justify-content: space-between; min-height: 106px; padding: 18px clamp(24px, 5vw, 64px); position: relative; z-index: 10; }
 .brand { align-items: center; display: flex; font-family: "Montserrat", sans-serif; font-size: 17px; font-weight: 600; line-height: 1.05; }
+.brand-crest { border-radius: 8px; display: block; height: 40px; margin-right: 10px; object-fit: contain; width: auto; }
 .brand em, h1 em, h2 em { font-family: Georgia, serif; font-weight: 400; }
 .main-nav { align-items: center; display: flex; gap: clamp(16px, 2.2vw, 34px); font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 600; }
 .main-nav a:not(.nav-cta):hover, .social-links a:hover { color: var(--burgundy); }
@@ -209,8 +210,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .text-link { align-items: center; display: inline-flex; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; gap: 8px; }
 .light-link:hover, .dark-link:hover { gap: 13px; }
 .hero-crest-wrap { align-self: center; justify-self: center; max-width: 480px; padding: 8px 0; width: 100%; }
-.crest-tile { background: #590100; }
-.crest-tile img { display: block; height: auto; width: 100%; }
+.crest-tile { background: transparent; }
+.crest-tile img { display: block; height: auto; object-fit: contain; width: 100%; }
 .section { padding: clamp(72px, 10vw, 130px) clamp(24px, 7vw, 92px); }
 .section-kicker { color: var(--burgundy); }
 .section-heading { align-items: end; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding-bottom: 22px; }
@@ -291,8 +292,8 @@ fieldset legend { margin-bottom: 10px; padding: 0; }
 .email-form .error { color: #ffd1c9; }
 .site-footer { background: var(--oxblood); color: var(--ivory); padding: 52px clamp(24px, 7vw, 92px) 22px; }
 .footer-brand { align-items: center; display: flex; font-family: "Montserrat", sans-serif; font-weight: 600; }
-.footer-crest-tile { background: #590100; height: 58px; margin-right: 14px; width: 58px; }
-.footer-crest-tile img { display: block; height: 58px; object-fit: cover; width: 58px; }
+.footer-crest-tile { background: transparent; height: 58px; margin-right: 14px; width: 58px; }
+.footer-crest-tile img { display: block; height: 58px; object-fit: contain; width: 58px; }
 .footer-brand small { color: rgba(244, 240, 232, 0.6); font-family: "Inter", sans-serif; font-size: 11px; font-weight: 400; }
 .social-links { display: flex; flex-wrap: wrap; gap: 20px; margin: 45px 0; }
 .social-links a { align-items: center; color: rgba(244, 240, 232, 0.75); display: flex; font-size: 12px; gap: 7px; }
