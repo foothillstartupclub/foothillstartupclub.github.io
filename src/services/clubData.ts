@@ -1,4 +1,3 @@
-import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 import { supabase } from "@/integrations/supabase/client";
@@ -38,23 +37,6 @@ export async function loadClubContent() {
 
 const emailInputSchema = z.object({ email: z.string().trim().min(3).max(320).email() });
 
-const subscribeEmailRequest = createServerFn({ method: "POST" })
-  .inputValidator((input: { email: string }) => emailInputSchema.parse(input))
-  .handler(async ({ data }) => {
-    try {
-      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const { error } = await supabaseAdmin.rpc("subscribe_email", { p_email: data.email });
-      if (error) {
-        console.error("Supabase subscribe_email failed", error);
-        return { saved: false };
-      }
-      return { saved: true };
-    } catch (error) {
-      console.error("Supabase subscribe_email request failed", error);
-      return { saved: false };
-    }
-  });
-
 const signupInputSchema = z
   .object({
     fullName: z.string().trim().min(2).max(120),
@@ -82,29 +64,6 @@ type SignupInput = {
   referralSource: string;
 };
 
-const submitSignupRequest = createServerFn({ method: "POST" })
-  .inputValidator((input: SignupInput) => signupInputSchema.parse(input))
-  .handler(async ({ data }) => {
-    try {
-      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const { error } = await supabaseAdmin.rpc("submit_signup", {
-        p_full_name: data.fullName,
-        p_email: data.email,
-        p_working_on_project: data.workingOnProject,
-        p_project_role: (data.projectRole ?? null) as unknown as string,
-        p_membership_type: data.membershipType,
-        p_referral_source: data.referralSource,
-      });
-      if (error) {
-        console.error("Supabase submit_signup failed", error);
-        return { saved: false };
-      }
-      return { saved: true };
-    } catch (error) {
-      console.error("Supabase submit_signup request failed", error);
-      return { saved: false };
-    }
-  });
 
 function saveError(message: string) {
   return { data: null, error: new Error(message) };
@@ -112,8 +71,13 @@ function saveError(message: string) {
 
 export async function subscribeEmail(email: string) {
   try {
-    const result = await subscribeEmailRequest({ data: { email } });
-    return result.saved ? { data: null, error: null } : saveError("Could not save email.");
+    const parsed = emailInputSchema.parse({ email });
+    const { error } = await supabase.rpc("subscribe_email", { p_email: parsed.email });
+    if (error) {
+      console.error("Supabase subscribe_email failed", error);
+      return saveError("Could not save email.");
+    }
+    return { data: null, error: null };
   } catch {
     return saveError("Could not save email.");
   }
@@ -121,8 +85,20 @@ export async function subscribeEmail(email: string) {
 
 export async function submitSignup(input: SignupInput) {
   try {
-    const result = await submitSignupRequest({ data: input });
-    return result.saved ? { data: null, error: null } : saveError("Could not submit signup.");
+    const parsed = signupInputSchema.parse(input);
+    const { error } = await supabase.rpc("submit_signup", {
+      p_full_name: parsed.fullName,
+      p_email: parsed.email,
+      p_working_on_project: parsed.workingOnProject,
+      p_project_role: parsed.projectRole,
+      p_membership_type: parsed.membershipType,
+      p_referral_source: parsed.referralSource,
+    });
+    if (error) {
+      console.error("Supabase submit_signup failed", error);
+      return saveError("Could not submit signup.");
+    }
+    return { data: null, error: null };
   } catch {
     return saveError("Could not submit signup.");
   }
