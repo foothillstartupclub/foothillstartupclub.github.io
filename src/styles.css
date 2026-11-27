@@ -209,7 +209,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .light-link { color: var(--ivory); }
 .text-link { align-items: center; display: inline-flex; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; gap: 8px; }
 .light-link:hover, .dark-link:hover { gap: 13px; }
-.hero-crest-wrap { align-self: center; justify-self: center; max-width: 480px; padding: 8px 0; transform: translateY(calc((24px - clamp(64px, 9vw, 128px)) / 2)); width: 100%; }
+.hero-crest-wrap { align-self: center; justify-self: center; max-width: clamp(280px, 34vw, 480px); padding: 8px 0; transform: translateY(calc((24px - clamp(64px, 9vw, 128px)) / 2)); width: 100%; }
 .crest-tile { background: transparent; }
 .crest-tile img { display: block; height: auto; object-fit: contain; width: 100%; }
 .section { padding: clamp(72px, 10vw, 130px) clamp(24px, 7vw, 92px); }
