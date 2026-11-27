@@ -210,7 +210,7 @@ function FoothillStartupClubPage() {
           <div className="hero-copy">
             <h1>
               Foothill
-              <br />
+              <br className="hero-title-break" />{" "}
               <em>Startup Club</em>
             </h1>
             <p className="hero-description">
