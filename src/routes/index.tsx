@@ -205,10 +205,10 @@ function FoothillStartupClubPage() {
             <h1>
               Foothill
               <br />
-              <em>Startup Club.</em>
+              <em>Startup Club</em>
             </h1>
             <p className="hero-description">
-              A place for Foothill students to explore ideas, build projects, and find people to create with.
+              Turning ideas into reality.
             </p>
             <div className="hero-actions">
               <a className="button button-cream" href="#join">
