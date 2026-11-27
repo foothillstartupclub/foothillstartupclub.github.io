@@ -172,6 +172,7 @@ function FoothillStartupClubPage() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Foothill Startup Club home">
+          <img className="brand-crest" src="/header-crest.svg" alt="Foothill Startup Club crest" />
           <span>
             Foothill
             <br />
@@ -251,7 +252,7 @@ function FoothillStartupClubPage() {
           </div>
           <div className="hero-crest-wrap">
             <div className="crest-tile">
-              <img src="/foothillstartupclubnewlogo.jpg" alt="Foothill Startup Club crest" />
+              <img src="/foothill_startup_club_logo_vector.svg" alt="Foothill Startup Club crest" />
             </div>
           </div>
         </section>
@@ -577,7 +578,7 @@ function FoothillStartupClubPage() {
       <footer className="site-footer">
         <div className="footer-brand">
           <div className="footer-crest-tile">
-            <img src="/foothillstartupclubnewlogo.jpg" alt="Foothill Startup Club crest" />
+            <img src="/footer-crest.svg" alt="Foothill Startup Club crest" />
           </div>
           <span>
             Foothill Startup Club
