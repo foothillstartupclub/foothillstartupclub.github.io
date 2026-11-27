@@ -135,12 +135,6 @@ function FoothillStartupClubPage() {
   async function submitSignup(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSignupStatus("");
-    if (membershipType === "other" || referralSource === "other") {
-      setSignupStatus(
-        "Custom “Other…” responses need a small database field addition before they can be saved. Please choose an existing option for now.",
-      );
-      return;
-    }
     const formEl = event.currentTarget;
     const form = new FormData(formEl);
     const { error } = await submitSignupRecord({
@@ -150,6 +144,8 @@ function FoothillStartupClubPage() {
       projectRole: workingOnProject ? String(form.get("project_role") ?? "") : null,
       membershipType,
       referralSource,
+      membershipOther: membershipType === "other" ? membershipOther : "",
+      referralOther: referralSource === "other" ? referralOther : "",
     });
     if (error) {
       setSignupStatus("We could not submit your application. Please review the form and try again.");

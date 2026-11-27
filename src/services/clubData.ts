@@ -43,8 +43,10 @@ const signupInputSchema = z
     email: z.string().trim().min(3).max(320).email(),
     workingOnProject: z.boolean(),
     projectRole: z.string().nullable(),
-    membershipType: z.enum(["founder", "general_member"]),
+    membershipType: z.enum(["founder", "general_member", "other"]),
     referralSource: z.string().trim().min(1).max(80),
+    membershipOther: z.string().trim().max(160).optional().default(""),
+    referralOther: z.string().trim().max(160).optional().default(""),
   })
   .superRefine((input, context) => {
     if (input.workingOnProject && !["founder", "team_member"].includes(input.projectRole ?? "")) {
@@ -52,6 +54,9 @@ const signupInputSchema = z
     }
     if (!input.workingOnProject && input.projectRole !== null) {
       context.addIssue({ code: "custom", message: "A project role requires a project." });
+    }
+    if (input.membershipType === "other" && input.membershipOther.length < 1) {
+      context.addIssue({ code: "custom", message: "Tell us how you'd like to join." });
     }
   });
 
@@ -62,6 +67,8 @@ type SignupInput = {
   projectRole: string | null;
   membershipType: string;
   referralSource: string;
+  membershipOther?: string;
+  referralOther?: string;
 };
 
 
@@ -90,9 +97,11 @@ export async function submitSignup(input: SignupInput) {
       p_full_name: parsed.fullName,
       p_email: parsed.email,
       p_working_on_project: parsed.workingOnProject,
-      p_project_role: parsed.projectRole,
+      p_project_role: parsed.projectRole as string,
       p_membership_type: parsed.membershipType,
       p_referral_source: parsed.referralSource,
+      p_membership_other: parsed.membershipType === "other" ? parsed.membershipOther : "",
+      p_referral_other: parsed.referralOther ? parsed.referralOther : "",
     });
     if (error) {
       console.error("Supabase submit_signup failed", error);
