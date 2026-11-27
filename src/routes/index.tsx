@@ -44,12 +44,12 @@ export const Route = createFileRoute("/")({
       { title: "Foothill Startup Club" },
       {
         name: "description",
-        content: "Looking to work on a project or have your own startup idea? Come share it!",
+        content: "Looking to work on a project or have your own startup idea? Come share your ideas and collaborate with others!",
       },
       { property: "og:title", content: "Foothill Startup Club" },
       {
         property: "og:description",
-        content: "Looking to work on a project or have your own startup idea? Come share it!",
+        content: "Looking to work on a project or have your own startup idea? Come share your ideas and collaborate with others!",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://foothillstartupclub.github.io/" },
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: "Foothill Startup Club" },
       {
         name: "twitter:description",
-        content: "Looking to work on a project or have your own startup idea? Come share it!",
+        content: "Looking to work on a project or have your own startup idea? Come share your ideas and collaborate with others!",
       },
       { name: "twitter:image", content: "https://foothillstartupclub.github.io/og-image.png" },
     ],

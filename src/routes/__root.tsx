@@ -84,13 +84,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Foothill Startup Club" },
       {
         name: "description",
-        content: "Looking to work on a project or have your own startup idea? Come share it!",
+        content: "Looking to work on a project or have your own startup idea? Come share your ideas and collaborate with others!",
       },
       { name: "author", content: "Foothill Startup Club" },
       { property: "og:title", content: "Foothill Startup Club" },
       {
         property: "og:description",
-        content: "Looking to work on a project or have your own startup idea? Come share it!",
+        content: "Looking to work on a project or have your own startup idea? Come share your ideas and collaborate with others!",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
